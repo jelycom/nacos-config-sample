@@ -1,23 +1,24 @@
 package cn.jely.cd.controller;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/config")
-@RefreshScope
+@RequestMapping("config")
 public class ConfigController {
 
-    @Value("${useLocalCache:false}")
+    @NacosValue(value = "${useLocalCache}",autoRefreshed = true)
     private boolean useLocalCache;
 
     /**
      * http://localhost:8080/config/get
      */
-    @RequestMapping("/get")
-    public boolean get() {
-        return useLocalCache;
+    @RequestMapping(value = "/get",method = RequestMethod.GET)
+    @ResponseBody
+    public String get() {
+        return String.valueOf(useLocalCache);
     }
 }

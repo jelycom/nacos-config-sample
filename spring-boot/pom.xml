@@ -2,11 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>nacos-config-sample</artifactId>
+        <groupId>cn.jely.cd</groupId>
+        <version>0.1.0</version>
+        <relativePath>..</relativePath>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>spring-boot</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    
+    <version>0.1.0</version>
+    <properties>
+        <!--        注意：版本 0.2.x.RELEASE 对应的是 Spring Boot 2.x 版本，版本 0.1.x.RELEASE 对应的是 Spring Boot 1.x 版本。-->
+        <spring-boot-nacos.version>0.2.7</spring-boot-nacos.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>${spring-boot-nacos.version}</version>
+        </dependency>
+    </dependencies>
 </project>
