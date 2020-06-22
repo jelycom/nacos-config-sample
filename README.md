@@ -1,6 +1,7 @@
 # nacos-config-sample
-Nacos config sample Project
+Nacos config sample Project (with user auth)
 >NACOS 1.2.1及1.3.0通过其它版本未验证
+
 ##spring-boot
 ```text
 Spring boot config演示，配置由false改为true,没有问题，但是true改为false要等很长时间才更新
