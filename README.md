@@ -30,4 +30,7 @@ nacos.core.auth.enabled=true
 result = this.agent.httpGet("/v1/cs/configs", (List)null, params, this.agent.getEncode(), readTimeout);
 ```
 如果result code 403 content返回有 Unkown user! 就要对引入版本以及用户密码进行检查.
+###本地开发和运行环境分开
+实际工作中开发环境的配置与测试/线上等环境配置不同，要么本地将多种环境的配置文件配置好，直接启动时激活相应的环境，也可以通过shell脚本更新修改，但都不是很方便，并且容易泄漏，通过配置中心能比较好的解决，但是加入配置中心后本地开发配置如果还是去配置中心又不是很方便并且。
+本项目就使用maven打包插件来将项目打包后的配置从配置中心获取，当然也可以通过shell脚本，jenkins等ci工具来处理,让开发人员无需关心其它环境配置。
 
